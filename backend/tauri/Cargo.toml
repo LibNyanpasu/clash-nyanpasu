@@ -50,7 +50,7 @@ tauri = { version = "1.5.4", features = [
 ] }
 window-vibrancy = { version = "0.5.0" }
 window-shadows = { version = "0.2.2" }
-wry = { version = "0.24.6" }
+wry = { version = "0.38.0" }
 semver = "1.0"
 zip = "0.6.6"
 zip-extensions = "0.6.2"
