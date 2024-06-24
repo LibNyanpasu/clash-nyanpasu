@@ -94,11 +94,16 @@ pub fn use_filter(config: Mapping, filter: &[String], enable: bool) -> Mapping {
 
 pub fn use_lowercase(config: Mapping) -> Mapping {
     let mut ret = Mapping::new();
-
     for (key, value) in config.into_iter() {
         if let Some(key_str) = key.as_str() {
             let mut key_str = String::from(key_str);
             key_str.make_ascii_lowercase();
+            // recursive transform the key of the nested mapping
+            let value = if let Value::Mapping(value) = value {
+                Value::Mapping(use_lowercase(value))
+            } else {
+                value // TODO: maybe should handle other types, Tagged, Sequence, etc.
+            };
             ret.insert(Value::from(key_str), value);
         }
     }

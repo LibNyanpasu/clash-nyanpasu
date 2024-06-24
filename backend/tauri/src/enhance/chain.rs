@@ -93,7 +93,7 @@ pub enum ChainType {
     Script(ScriptType),
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+#[derive(Debug, Clone, Serialize, Deserialize, Default, Eq, PartialEq, Hash)]
 pub enum ScriptType {
     #[default]
     #[serde(rename = "javascript")]

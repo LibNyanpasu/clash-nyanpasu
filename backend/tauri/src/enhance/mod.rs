@@ -69,27 +69,33 @@ pub fn enhance() -> (Mapping, Vec<String>, HashMap<String, ResultLog>) {
     config = use_filter(config, &valid, enable_filter);
 
     // 处理用户的profile
-    chains.into_iter().for_each(|item| match item.data {
-        ChainTypeWrapper::Merge(merge) => {
-            exists_keys.extend(use_keys(&merge));
-            config = use_merge(merge, config.to_owned());
-            config = use_filter(config.to_owned(), &valid, enable_filter);
-        }
-        ChainTypeWrapper::Script(script) => {
-            let mut logs = vec![];
-
-            match use_script(script, config.to_owned()) {
-                Ok((res_config, res_logs)) => {
-                    exists_keys.extend(use_keys(&res_config));
-                    config = use_filter(res_config, &valid, enable_filter);
-                    logs.extend(res_logs);
-                }
-                Err(err) => logs.push(("exception".into(), err.to_string())),
+    let mut script_runner = RunnerManager::new();
+    chains.into_iter().for_each(|item| {
+        // TODO: 想一个更好的办法，避免内存拷贝
+        config = use_lowercase(config.clone()); // 将所有的 key 转为小写（递归）
+        match item.data {
+            ChainTypeWrapper::Merge(merge) => {
+                exists_keys.extend(use_keys(&merge));
+                config = use_merge(merge, config.to_owned());
+                config = use_filter(config.to_owned(), &valid, enable_filter);
             }
-
-            result_map.insert(item.uid, logs);
+            ChainTypeWrapper::Script(script) => {
+                let mut logs = vec![];
+                match script_runner.process_script(script, config.to_owned()) {
+                    Ok((res_config, res_logs)) => {
+                        exists_keys.extend(use_keys(&res_config));
+                        config = use_filter(res_config, &valid, enable_filter);
+                        logs.extend(res_logs.into_iter().map(|msg| ("info".into(), msg)));
+                        // TODO: 修改日记 level 格式？
+                    }
+                    Err(err) => logs.push(("exception".into(), err.to_string())),
+                }
+                // TODO: 这里添加对 field 的检查，触发 WARN 日记。此外，需要对 Merge 的结果进行检查？
+                result_map.insert(item.uid, logs);
+            }
         }
     });
+    config = use_lowercase(config); // 将所有的 key 转为小写（递归）
 
     // 合并默认的config
     clash_config
@@ -112,7 +118,7 @@ pub fn enhance() -> (Mapping, Vec<String>, HashMap<String, ResultLog>) {
                 log::debug!(target: "app", "run builtin script {}", item.uid);
 
                 if let ChainTypeWrapper::Script(script) = item.data {
-                    match use_script(script, config.to_owned()) {
+                    match script_runner.process_script(script, config.to_owned()) {
                         Ok((res_config, _)) => {
                             config = use_filter(res_config, &clash_fields, enable_filter);
                         }
