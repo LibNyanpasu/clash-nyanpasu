@@ -8,7 +8,7 @@
     "@mui/icons-material": "5.15.21",
     "@mui/lab": "5.0.0-alpha.170",
     "@mui/material": "5.15.21",
-    "@tauri-apps/api": "1.5.6",
+    "@tauri-apps/api": "1.6.0",
     "@types/d3": "7.4.3",
     "@types/react": "18.3.3",
     "ahooks": "3.8.0",
