@@ -122,8 +122,8 @@ importers:
         specifier: 3.3.3
         version: 3.3.3
       prettier-plugin-tailwindcss:
-        specifier: 0.6.5
-        version: 0.6.5(@ianvs/prettier-plugin-sort-imports@4.3.1(prettier@3.3.3))(@trivago/prettier-plugin-sort-imports@4.3.0(prettier@3.3.3))(prettier@3.3.3)
+        specifier: 0.6.6
+        version: 0.6.6(@ianvs/prettier-plugin-sort-imports@4.3.1(prettier@3.3.3))(@trivago/prettier-plugin-sort-imports@4.3.0(prettier@3.3.3))(prettier@3.3.3)
       prettier-plugin-toml:
         specifier: 2.0.1
         version: 2.0.1(prettier@3.3.3)
@@ -1516,22 +1516,6 @@ packages:
 
   '@mui/system@5.16.5':
     resolution: {integrity: sha512-uzIUGdrWddUx1HPxW4+B2o4vpgKyRxGe/8BxbfXVDPNPHX75c782TseoCnR/VyfnZJfqX87GcxDmnZEE1c031g==}
-    engines: {node: '>=12.0.0'}
-    peerDependencies:
-      '@emotion/react': ^11.5.0
-      '@emotion/styled': ^11.3.0
-      '@types/react': npm:types-react@rc
-      react: npm:react@rc
-    peerDependenciesMeta:
-      '@emotion/react':
-        optional: true
-      '@emotion/styled':
-        optional: true
-      '@types/react':
-        optional: true
-
-  '@mui/system@5.16.6':
-    resolution: {integrity: sha512-5xgyJjBIMPw8HIaZpfbGAaFYPwImQn7Nyh+wwKWhvkoIeDosQ1ZMVrbTclefi7G8hNmqhip04duYwYpbBFnBgw==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       '@emotion/react': ^11.5.0
@@ -5333,8 +5317,8 @@ packages:
     resolution: {integrity: sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==}
     engines: {node: '>=6.0.0'}
 
-  prettier-plugin-tailwindcss@0.6.5:
-    resolution: {integrity: sha512-axfeOArc/RiGHjOIy9HytehlC0ZLeMaqY09mm8YCkMzznKiDkwFzOpBvtuhuv3xG5qB73+Mj7OCe2j/L1ryfuQ==}
+  prettier-plugin-tailwindcss@0.6.6:
+    resolution: {integrity: sha512-OPva5S7WAsPLEsOuOWXATi13QrCKACCiIonFgIR6V4lYv4QLp++UXVhZSzRbZxXGimkQtQT86CC6fQqTOybGng==}
     engines: {node: '>=14.21.3'}
     peerDependencies:
       '@ianvs/prettier-plugin-sort-imports': '*'
@@ -5348,6 +5332,7 @@ packages:
       prettier-plugin-import-sort: '*'
       prettier-plugin-jsdoc: '*'
       prettier-plugin-marko: '*'
+      prettier-plugin-multiline-arrays: '*'
       prettier-plugin-organize-attributes: '*'
       prettier-plugin-organize-imports: '*'
       prettier-plugin-sort-imports: '*'
@@ -5373,6 +5358,8 @@ packages:
       prettier-plugin-jsdoc:
         optional: true
       prettier-plugin-marko:
+        optional: true
+      prettier-plugin-multiline-arrays:
         optional: true
       prettier-plugin-organize-attributes:
         optional: true
@@ -7609,22 +7596,6 @@ snapshots:
       '@emotion/styled': 11.13.0(@emotion/react@11.13.0(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1)
       '@types/react': types-react@19.0.0-rc.1
 
-  '@mui/system@5.16.6(@emotion/react@11.13.0(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(@emotion/styled@11.13.0(@emotion/react@11.13.0(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1)':
-    dependencies:
-      '@babel/runtime': 7.24.8
-      '@mui/private-theming': 5.16.6(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1)
-      '@mui/styled-engine': 5.16.6(@emotion/react@11.13.0(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(@emotion/styled@11.13.0(@emotion/react@11.13.0(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(react@19.0.0-rc-e948a5ac-20240807)
-      '@mui/types': 7.2.15(types-react@19.0.0-rc.1)
-      '@mui/utils': 5.16.6(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1)
-      clsx: 2.1.1
-      csstype: 3.1.3
-      prop-types: 15.8.1
-      react: 19.0.0-rc-e948a5ac-20240807
-    optionalDependencies:
-      '@emotion/react': 11.13.0(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1)
-      '@emotion/styled': 11.13.0(@emotion/react@11.13.0(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1)
-      '@types/react': types-react@19.0.0-rc.1
-
   '@mui/system@5.16.7(@emotion/react@11.13.0(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(@emotion/styled@11.13.0(@emotion/react@11.13.0(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1)':
     dependencies:
       '@babel/runtime': 7.24.8
@@ -7674,7 +7645,7 @@ snapshots:
       '@babel/runtime': 7.24.8
       '@mui/base': 5.0.0-beta.40(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1)
       '@mui/material': 5.16.7(@emotion/react@11.13.0(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(@emotion/styled@11.13.0(@emotion/react@11.13.0(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1)
-      '@mui/system': 5.16.6(@emotion/react@11.13.0(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(@emotion/styled@11.13.0(@emotion/react@11.13.0(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1)
+      '@mui/system': 5.16.7(@emotion/react@11.13.0(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(@emotion/styled@11.13.0(@emotion/react@11.13.0(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1))(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1)
       '@mui/utils': 5.16.6(react@19.0.0-rc-e948a5ac-20240807)(types-react@19.0.0-rc.1)
       '@types/react-transition-group': 4.4.10
       clsx: 2.1.1
@@ -11734,7 +11705,7 @@ snapshots:
     dependencies:
       fast-diff: 1.3.0
 
-  prettier-plugin-tailwindcss@0.6.5(@ianvs/prettier-plugin-sort-imports@4.3.1(prettier@3.3.3))(@trivago/prettier-plugin-sort-imports@4.3.0(prettier@3.3.3))(prettier@3.3.3):
+  prettier-plugin-tailwindcss@0.6.6(@ianvs/prettier-plugin-sort-imports@4.3.1(prettier@3.3.3))(@trivago/prettier-plugin-sort-imports@4.3.0(prettier@3.3.3))(prettier@3.3.3):
     dependencies:
       prettier: 3.3.3
     optionalDependencies:
