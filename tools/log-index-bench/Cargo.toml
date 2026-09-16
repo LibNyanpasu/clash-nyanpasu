@@ -8,7 +8,7 @@ gxhash = "=3.5.0"
 nyanpasu-logging = { path = "../../backend/nyanpasu-runtime/crates/nyanpasu-logging" }
 anyhow = { version = "=1.0.104", features = [] }
 bumpalo = { version = "=3.20.3", features = [] }
-camino = { version = "=1.2.5", features = ["serde1"] }
+camino = { version = "=1.2.6", features = ["serde1"] }
 chrono = { version = "=0.4.45", features = ["serde"] }
 derive_builder = { version = "=0.20.2", features = [] }
 itertools = { version = "=0.15.0", features = [] }
