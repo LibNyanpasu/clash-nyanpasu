@@ -65,7 +65,7 @@ include_url_macro = { git = "https://github.com/libnyanpasu/include_url_macro", 
 thiserror = "2"
 tracing = "0.1"
 boa_engine = { version = "0.22", features = ["annex-b"] }
-reqwest = { version = "0.12", default-features = false, features = [
+reqwest = { version = "0.13", default-features = false, features = [
   "charset",
   "http2",
   "system-proxy",
